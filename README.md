@@ -1,16 +1,13 @@
 # CODE — Pigpen Encoder
 
-Static website for `code.jeremydouglas.com`.
+Minimal black-and-white Pigpen encoder for code.jeremydouglas.com.
 
-## Deployment
-1. Upload `index.html`, `style.css`, `app.js`, and `CNAME` to the **root** of your GitHub repository.
-2. GitHub repository → Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.
-3. In Cloudflare DNS for `jeremydouglas.com`, create a CNAME record: **Name:** `code`; **Target:** `<your-github-username>.github.io`; **Proxy:** DNS only (recommended initially).
-4. In GitHub Pages settings, set Custom domain to `code.jeremydouglas.com`, then enable Enforce HTTPS once the certificate is ready.
+## Deploy
 
-The site performs OCR in the browser using Tesseract.js (downloaded from CDN). Photos are not uploaded to a server by this code. Standard Pigpen encoding is local JavaScript. No 2–0 shift is applied.
+Upload `index.html`, `style.css`, `app.js`, `CNAME` and `README.md` to the root of a GitHub repository. Enable GitHub Pages from the `main` branch, `/ (root)`. Configure the `code` CNAME record in Cloudflare to point to your GitHub Pages hostname, then set `code.jeremydouglas.com` as the Pages custom domain.
 
-## Notes
-- Review extracted text before clicking Encode.
-- PNG, SVG, image clipboard, and Print / Save PDF are supported (clipboard depends on browser permissions).
-- Pigpen symbol orientations follow the A–I/J–R tic-tac-toe and S–V/W–Z X-grid mapping; make sure the recipient uses the same key orientation.
+## Usage
+
+Type text or upload an English-language image. After OCR completes, review and edit the extracted text. Click ENCODE. Export as PNG/SVG, copy the PNG image, or print/save as PDF. The additional 2–0 shift is not performed.
+
+Image recognition uses Tesseract.js from a CDN and needs internet access to load the library. OCR is performed in the browser.

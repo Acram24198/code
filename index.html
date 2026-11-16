@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10151f">
-  <title>CODE — Pigpen Encoder</title>
+  <meta name="theme-color" content="#000000">
+  <title>CODE</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
-  <main class="shell">
-    <header><div class="eyebrow">JEREMYDOUGLAS.COM / TOOLS</div><h1>CODE<span class="dot">.</span></h1><p>Convert English text and photographs into the standard Pigpen cipher.</p></header>
-    <section class="panel"><h2>01 / Input</h2><label class="upload" for="imageInput"><span>Upload an image or take a photo</span><small>PNG, JPG, WebP — text is recognized in your browser</small></label><input id="imageInput" type="file" accept="image/*" capture="environment"><div class="preview" id="previewBox" hidden><img id="preview" alt="Uploaded image preview"></div><div class="progress" id="progress" hidden><div id="progressBar"></div></div><p class="status" id="status" role="status" aria-live="polite"></p><label for="plainText">Extracted / typed English text</label><textarea id="plainText" rows="6" placeholder="Type here, or upload a photo and review the extracted text..."></textarea><div class="actions"><button id="encodeBtn" class="primary">Encode to Pigpen</button><button id="clearBtn" class="secondary">Clear</button></div></section>
-    <section class="panel"><div class="section-head"><h2>02 / Encoded output</h2><span class="tag">STANDARD PIGPEN · NO SHIFT</span></div><div id="output" class="output" aria-label="Encoded Pigpen cipher output"><p class="placeholder">Your encoded message will appear here.</p></div><div class="actions"><button id="pngBtn" class="secondary" disabled>Download PNG</button><button id="svgBtn" class="secondary" disabled>Download SVG</button><button id="copyBtn" class="secondary" disabled>Copy image</button><button id="pdfBtn" class="secondary" disabled>Print / Save PDF</button></div><p class="hint">Review OCR results before encoding. Only A–Z are encoded; spaces, punctuation, and line breaks are preserved. No 2–0 shift is applied.</p></section>
-    <footer>CODE.JEREMYDOUGLAS.COM · LOCAL BROWSER PROCESSING</footer>
+  <main>
+    <header><h1>CODE<span>.</span></h1><p>TEXT → PIGPEN</p></header>
+    <section aria-labelledby="inputHeading">
+      <div class="heading"><h2 id="inputHeading">INPUT</h2><label class="upload" for="imageInput">+ UPLOAD IMAGE</label></div>
+      <input id="imageInput" type="file" accept="image/*" capture="environment">
+      <div class="preview" id="previewBox" hidden><img id="preview" alt="Uploaded image preview"></div>
+      <div class="progress" id="progress" hidden><div id="progressBar"></div></div>
+      <label class="sr-only" for="plainText">Text to encode, including text extracted from image</label>
+      <textarea id="plainText" spellcheck="false" rows="7" placeholder="Type text or upload an image..."></textarea>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <div class="actions"><button id="encodeBtn" class="primary">ENCODE</button><button id="clearBtn">CLEAR</button></div>
+    </section>
+    <section aria-labelledby="outputHeading">
+      <div class="heading"><h2 id="outputHeading">OUTPUT</h2><span class="meta">PIGPEN / NO SHIFT</span></div>
+      <div id="output" class="output" aria-label="Pigpen cipher output"><p class="placeholder">Encoded text will appear here.</p></div>
+      <div class="actions downloads"><button id="pngBtn" disabled>PNG</button><button id="svgBtn" disabled>SVG</button><button id="copyBtn" disabled>COPY</button><button id="pdfBtn" disabled>PRINT / PDF</button></div>
+    </section>
+    <footer>CODE.JEREMYDOUGLAS.COM</footer>
   </main>
 </body>
 </html>
